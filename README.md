@@ -241,7 +241,7 @@ Allows action generators to return functions rather than objects. This allows ac
 </details>
 <details>
 <summary>sass-loader</summary>
-Compiles SCSS files down to 
+Compiles SCSS files down to CSS
 </details>
 <details>
 <summary>style-loader</summary>
