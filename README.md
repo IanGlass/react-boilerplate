@@ -1,10 +1,15 @@
-# cash-monies
+# react-boilerplate
 
-testing is setup to run on a test firebase database and credentials should be defined in .env and .env.test respectively.
+## Test
+- Testing is performed using jest and provides a code coverage report in /coverage. A separate firebase testing database should be setup with a .env.test file to store credentials
+- Production testing is setup for circleci using codecov but will need a codecov key added to testCI npm script
+- heroku-postbuild hook: specifies how heroku should build the app using webpack, which takes longer but is more compact, this makes it quicker to serve the app to new users
+- The PrivateRoute and PublicRoute higher order components provide a means to protect routes depending if the user is authenticated. This prevents users from manually directing to restricted routes.
+- Source maps have been configured which allows the browser to display error links to development code rather than the minified bundle. `inline-source-map` is used during develoment because bundling is quicker.
 
-heroku-postbuild hook: specifies how heroku should build the app using webpack, which takes longer but is more compact, this makes it quicker to serve the app to new users
-
-
+```javascript
+devtool: isProduction ? 'source-map' : 'inline-source-map',
+```
 
 ## Packages
 <details>
@@ -259,10 +264,3 @@ Validates and sanitises string inputs according to parameters. i.e. isEmail with
 <summary>webpack</summary>
 Bundles javascript and css assets into single files to be served to a client browser.
 </details>
-
-
-PrivateRoute vs PublicRoute
-
-## webpack.config
-
-devtool: source-map vs inline-source-map
